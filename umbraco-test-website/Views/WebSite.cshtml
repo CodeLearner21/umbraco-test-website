@@ -1,0 +1,42 @@
+﻿@using ClientDependency.Core.Mvc;
+@using Umbraco.Web;
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels
+@{
+    Layout = null;
+
+    // CSS
+    Html.RequiresCss("~/lib/bootstrap/css/bootstrap.css", 0);
+
+    Html.RequiresCss("~/css/custom.css", 20);
+
+    // Javascript
+    Html.RequiresJs("~/lib/jquery3-4-1/jquery.js", 0);
+    Html.RequiresJs("~/lib/popper-js/umd/popper.js", 1);
+    Html.RequiresJs("~/lib/bootstrap/js/bootstrap.js", 2);
+
+    Html.RequiresJs("~/scripts/custom.js", 20);
+
+    var cachedSeconds = 1;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, world!</title>
+
+    @Html.RenderCssHere()
+</head>
+<body>
+    <div class="container body-wrapper">
+        @Html.CachedPartial("~/Views/Partials/[Common]Header.cshtml", Model, 1)
+        @RenderBody()
+        @Html.CachedPartial("~/Views/Partials/[Common]Footer.cshtml", Model, 1)
+   </div>
+    @Html.RenderJsHere()
+</body>
+</html>
+

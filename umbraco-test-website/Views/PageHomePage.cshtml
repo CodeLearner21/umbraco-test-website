@@ -1,0 +1,14 @@
+﻿@using Our.Umbraco.Vorto.Extensions
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.PageHomePage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "WebSite.cshtml";
+
+    var title = Model.Content.GetVortoValue<string>("title");
+
+    var body = Model.Content.GetVortoValue<string>("body");
+}
+
+<h1>@Html.Raw(title)</h1>
+@Html.Raw(body)

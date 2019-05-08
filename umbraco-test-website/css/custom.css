@@ -1,0 +1,24 @@
+body {
+    background-color: darkslategrey;
+}
+
+header {
+    padding-bottom: 20px;
+    border-bottom: solid 1px #ccc;
+    margin-bottom: 20px;
+}
+
+.body-wrapper {
+    background-color: aliceblue;
+    padding: 40px;
+}
+
+.footer {
+    border-top: solid 1px #ccc;
+    padding: 10px 20px 0 20px;
+    margin-top: 20px;
+}
+
+.copyright-line {
+    color: grey;
+}

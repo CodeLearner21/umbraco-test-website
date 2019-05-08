@@ -1,0 +1,18 @@
+﻿@using Our.Umbraco.Vorto.Extensions;
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels
+@{ 
+    var site = Model.Content.Site() as ContentModels.SiteWebsite;
+
+    var copyright = site.GetVortoValue<string>("copyright");
+    if(!String.IsNullOrWhiteSpace(copyright))
+    {
+        copyright = copyright.Contains("{{year}}") ?
+            copyright.Replace("{{year}}", DateTime.Now.Year.ToString())
+            : copyright;
+    }
+}
+<div class="footer">
+    <small class="copyright-line">@Html.Raw(copyright)</small>
+</div>
