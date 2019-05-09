@@ -1,1 +1,30 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using Our.Umbraco.Vorto.Extensions;
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels
+@{
+    var site = Model.Content.Site();
+
+    var titlePattern = site.GetVortoValue<string>("commonTitle");
+
+    var metaTitle = site.GetVortoValue<string>("metaTitle");
+    if (String.IsNullOrWhiteSpace(metaTitle))
+    {
+        metaTitle = Model.Content.GetVortoValue<string>("title");
+        if (String.IsNullOrWhiteSpace(metaTitle))
+        {
+            metaTitle = Model.Content.Name;
+        }
+    }
+
+
+    metaTitle = !String.IsNullOrWhiteSpace(titlePattern) ?
+        titlePattern.Contains("{{title}}") ?
+            titlePattern.Replace("{{title}}", metaTitle)
+            : metaTitle + " | " + titlePattern
+        : metaTitle;
+}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>@Html.Raw(metaTitle)</title>
