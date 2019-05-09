@@ -322,8 +322,11 @@
   <ItemGroup>
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
+    <Compile Include="App_Data\Models\FolderVariations.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\PageBlogArticle.generated.cs" />
+    <Compile Include="App_Data\Models\PageBlogPage.generated.cs" />
     <Compile Include="App_Data\Models\PageHomePage.generated.cs" />
     <Compile Include="App_Data\Models\SiteWebsite.generated.cs" />
     <Compile Include="App_Data\Models\TabContent.generated.cs" />
@@ -397,6 +400,8 @@
     <Content Include="Views\Partials\[Common]MetaTags.cshtml" />
     <Content Include="Views\Partials\[Common]Footer.cshtml" />
     <Content Include="Views\Partials\[Common]Header.cshtml" />
+    <Content Include="Views\PageBlogArticle.cshtml" />
+    <Content Include="Views\PageBlogPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
